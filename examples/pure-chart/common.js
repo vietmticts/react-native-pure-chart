@@ -345,7 +345,7 @@ export const drawXAxisLabels = (sortedData, gap, color = '#000000', showEvenNumb
               position: 'absolute',
               // left: data[0] - gap / 2,
               left: data['gap'] - gap / 4,
-              width: gap,
+              width: gap * 1.5,
               alignItems: 'center',
               paddingTop: 10,
             }}>
