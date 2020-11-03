@@ -1,8 +1,6 @@
 import React from 'react'
-import { View, TouchableWithoutFeedback, Text, Animated, Easing, ScrollView, StyleSheet, Dimensions } from 'react-native'
+import { View, TouchableWithoutFeedback, Text, Animated, Easing, ScrollView, StyleSheet } from 'react-native'
 import {initData, drawYAxis, drawGuideLine, drawYAxisLabels, numberWithCommas, drawXAxis, drawXAxisLabels} from '../common'
-
-const screenWidth = Dimensions.get("window").width;
 
 class LineChart extends React.Component {
   constructor (props) {
@@ -352,7 +350,7 @@ class LineChart extends React.Component {
                         alignItems: 'flex-end',
                         height: '100%',
                         position: index === 0 ? 'relative' : 'absolute',
-                        minWidth: screenWidth - 100,
+                        minWidth: 200,
                         marginBottom: this.props.minValue && this.state.guideArray && this.state.guideArray.length > 0 ? -1 * this.state.guideArray[0][2] * this.props.minValue : null
                       }} >
                         {this.drawCoordinates(obj.data, obj.seriesColor, index)}

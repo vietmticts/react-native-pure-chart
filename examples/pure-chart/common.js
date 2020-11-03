@@ -335,21 +335,20 @@ export const drawXAxisLabels = (sortedData, gap, color = '#000000', showEvenNumb
     <View style={{
       width: '100%',
       paddingVertical: 10,
-      height: 60
+      height: 10
     }}>
       {sortedData.map((data, i) => {
         // if (data[3] && i % 2 === 1) {
-        if (data['x'] || !showEvenNumberXaxisLabel) {
+        if (data['x'] && i % 2 === 1 || !showEvenNumberXaxisLabel) {
           return (
             <View key={'label' + i} style={{
               position: 'absolute',
               // left: data[0] - gap / 2,
-              left: data['gap'] - gap / 4,
+              left: data['gap'] - gap / 2,
               width: gap,
-              alignItems: 'center',
-              paddingTop: 10,
+              alignItems: 'center'
             }}>
-              <Text style={{ fontSize: 10, color: color, fontWeight:'500' ,marginTop: 5, transform: [{ rotate: '30deg' }] }}>
+              <Text style={{fontSize: 9, color: color}}>
                 {
                   // data[3]
                   data['x']
