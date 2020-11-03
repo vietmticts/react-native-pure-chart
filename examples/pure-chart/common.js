@@ -1,12 +1,12 @@
 import _ from 'lodash'
 import React from 'react'
-import {View, Text} from 'react-native'
+import { View, Text } from 'react-native'
 
 const SINGLE_SERIES_WITH_NUMBERS = 0
 const SINGLE_SERIES_WITH_OBJECTS = 1
 const MULTI_SERIES = 2
 
-function flattenData (data) {
+function flattenData(data) {
   let numberCount = 0
   let objectWithYCount = 0
   let multiSeriesCount = 0
@@ -38,7 +38,7 @@ function flattenData (data) {
   }
 }
 
-function getMaxValue (data) {
+function getMaxValue(data) {
   let values = []
 
   data.map((value) => {
@@ -240,10 +240,10 @@ export const drawYAxis = (color = '#e0e0e0') => {
   )
 }
 
-export const drawYAxisLabels = (arr, height, minValue, color = '#000000', symbol='') => {
+export const drawYAxisLabels = (arr, height, minValue, color = '#000000', symbol = '') => {
   return (
     <View style={{
-      width: 33 + 5*symbol.length,
+      width: 33 + 5 * symbol.length,
       height: height,
       justifyContent: 'flex-end',
       alignItems: 'flex-end',
@@ -258,10 +258,10 @@ export const drawYAxisLabels = (arr, height, minValue, color = '#000000', symbol
             bottom: 0,
             position: 'absolute'
           }}>
-          <Text style={{fontSize: 11}}>0</Text>
+          <Text style={{ fontSize: 11 }}>0</Text>
         </View>
       ) : arr.map((v, i) => {
-        if (v[1] > height-5) return null
+        if (v[1] > height - 5) return null
         return (
           <View
             key={'guide' + i}
@@ -269,7 +269,7 @@ export const drawYAxisLabels = (arr, height, minValue, color = '#000000', symbol
               bottom: v[1] - 5,
               position: 'absolute'
             }}>
-            <Text style={{fontSize: 11, color: color}}>{v[0] + ' ' + symbol}</Text>
+            <Text style={{ fontSize: 11, color: color }}>{v[0] + ' ' + symbol}</Text>
           </View>
         )
       })}
@@ -335,20 +335,22 @@ export const drawXAxisLabels = (sortedData, gap, color = '#000000', showEvenNumb
     <View style={{
       width: '100%',
       paddingVertical: 10,
-      height: 10
+      height: 60
     }}>
       {sortedData.map((data, i) => {
         // if (data[3] && i % 2 === 1) {
-        if (data['x'] && i % 2 === 1 || !showEvenNumberXaxisLabel) {
+        if (data['x'] || !showEvenNumberXaxisLabel) {
           return (
             <View key={'label' + i} style={{
               position: 'absolute',
               // left: data[0] - gap / 2,
-              left: data['gap'] - gap / 2,
+              left: data['gap'] - gap / 4,
               width: gap,
-              alignItems: 'center'
+              alignItems: 'center',
+              paddingTop: 10
+
             }}>
-              <Text style={{fontSize: 9, color: color}}>
+              <Text style={{ fontSize: 10, color: color, fontWeight: '500', marginTop: 5, transform: [{ rotate: '30deg' }] }}>
                 {
                   // data[3]
                   data['x']
