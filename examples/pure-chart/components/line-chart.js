@@ -124,11 +124,10 @@ class LineChart extends React.Component {
         </View>
 
         {!lastCoordinate && seriesIndex === 0 ? (
-          null
-          // <View style={StyleSheet.flatten([styles.guideLine, {
-          //   width: dx,
-          //   borderRightColor: this.props.xAxisGridLineColor
-          // }])} />
+          <View style={StyleSheet.flatten([styles.guideLine, {
+            width: dx,
+            borderRightColor: this.props.xAxisGridLineColor
+          }])} />
         ) : null}
         {seriesIndex === this.state.sortedData.length - 1 && (
           <TouchableWithoutFeedback onPress={() => {
