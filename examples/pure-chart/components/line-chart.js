@@ -330,6 +330,7 @@ class LineChart extends React.Component {
 
           <View>
             <ScrollView
+              showsHorizontalScrollIndicator={false}
               horizontal
               ref={ref => this.scrollView = ref}
               onContentSizeChange={() => {
@@ -349,7 +350,7 @@ class LineChart extends React.Component {
                         alignItems: 'flex-end',
                         height: '100%',
                         position: index === 0 ? 'relative' : 'absolute',
-                        minWidth: 200,
+                        minWidth: 450,
                         marginBottom: this.props.minValue && this.state.guideArray && this.state.guideArray.length > 0 ? -1 * this.state.guideArray[0][2] * this.props.minValue : null
                       }} >
                         {this.drawCoordinates(obj.data, obj.seriesColor, index)}
@@ -397,7 +398,8 @@ LineChart.defaultProps = {
 const styles = StyleSheet.create({
   wrapper: {
     flexDirection: 'row',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    paddingRight: 50
   },
   yAxisLabelsWrapper: {
     paddingRight: 5
